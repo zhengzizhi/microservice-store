@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: microservice-store/inventory-service
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: root
+Implementation-Vendor-Id: com.contoso
+Build-Jdk: 1.8.0_181
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/microservice-store/inventory-service
+Created-By: Maven Integration for Eclipse
+

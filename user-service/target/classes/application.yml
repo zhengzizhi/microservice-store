@@ -1,0 +1,81 @@
+spring:
+  profiles:
+    active: development
+---
+server:
+  port: 8181
+  servlet:
+    context-path: /uaa
+#security:
+#  user:
+#    password: password
+#  enable-csrf: false
+logging:
+  level:
+    org.springframework.security: DEBUG
+spring:
+  redis:
+    host: 192.168.99.100
+    port: 6379
+  security:
+    user:
+      password: password
+  profiles: development
+  datasource:
+    url: jdbc:mysql://192.168.99.100:3306/dev?useSSL=false
+    username: root
+    password: dbpass
+    data-username: root
+    data-password: dbpass
+#    schema-username: root
+#    schema-password: dbpass
+    initialization-mode: always
+#security.ignored: /resources/**
+---
+server:
+  port: 8181
+  servlet:
+    context-path: /uaa
+#security:
+#  user:
+#    password: password
+#  enable-csrf: false
+spring:
+  redis:
+    host: redis
+    port: 6379
+  security:
+    user:
+      password: password
+  profiles: docker
+  datasource:
+    url: jdbc:mysql://mysql:3306/dev?useSSL=false
+    username: root
+    password: dbpass
+    data-username: root
+    data-password: dbpass
+    schema-username: root
+    schema-password: dbpass
+    initialization-mode: always
+#security.ignored: /resources/**
+eureka:
+  instance:
+    prefer-ip-address: true
+    non-secure-port: 8181
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://discovery-service:8761/eureka/
+---
+spring:
+  redis:
+    host: localhost
+    port: 6379
+  profiles: test
+  jpa:
+    show-sql: false
+    database: H2
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE
+    initialization-mode: never

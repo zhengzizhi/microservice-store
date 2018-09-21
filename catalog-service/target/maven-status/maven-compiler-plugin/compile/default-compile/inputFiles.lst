@@ -1,0 +1,8 @@
+/opt/coding/microservice-store/catalog-service/src/main/java/com/contoso/catalog/Catalog.java
+/opt/coding/microservice-store/catalog-service/src/main/java/com/contoso/api/v1/CatalogServiceV1.java
+/opt/coding/microservice-store/catalog-service/src/main/java/com/contoso/api/v1/CatalogControllerV1.java
+/opt/coding/microservice-store/catalog-service/src/main/java/com/contoso/catalog/CatalogInfoRepository.java
+/opt/coding/microservice-store/catalog-service/src/main/java/com/contoso/product/Product.java
+/opt/coding/microservice-store/catalog-service/src/main/java/com/contoso/api/v1/ProductsResource.java
+/opt/coding/microservice-store/catalog-service/src/main/java/com/contoso/catalog/CatalogInfo.java
+/opt/coding/microservice-store/catalog-service/src/main/java/com/contoso/CatalogServiceApplication.java
