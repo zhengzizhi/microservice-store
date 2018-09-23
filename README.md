@@ -14,7 +14,7 @@ du -h --max-depth=1
 docker-machine rm default
 docker-machine create default --driver virtualbox --virtualbox-memory "11000" --virtualbox-disk-size "100000"
 
-my profile :
+CentOS 7.5 profile :
 [root@cloud ~]# cat /etc/profile
 # /etc/profile
 ...  ...  ......
