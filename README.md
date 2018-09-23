@@ -12,8 +12,25 @@ $ mvn clean && sh run.sh
 ```
 du -h --max-depth=1
 docker-machine rm default
-reboot 
 docker-machine create default --driver virtualbox --virtualbox-memory "11000" --virtualbox-disk-size "100000"
+
+my profile :
+[root@cloud ~]# cat /etc/profile
+# /etc/profile
+...  ...  ......
+...  ...  ......
+...  ...  ......
+
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.181-3.b13.el7_5.x86_64
+export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$JAVA_HOME/bin:$PATH
+export PATH=/opt/apache-maven-3.5.4/bin:$PATH
+export MAVEN_HOME=/opt/apache-maven-3.5.4
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://192.168.99.100:2376"
+export DOCKER_CERT_PATH="/root/.docker/machine/machines/default"
+export DOCKER_MACHINE_NAME="default"
+[root@cloud ~]# 
 ```
 
 ## your computer has poweroff or reboot, not to execute bash run.sh to run microservice-store
