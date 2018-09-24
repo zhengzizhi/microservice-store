@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # microservice-store version information
 pom.xml
 ```
@@ -124,7 +122,6 @@ docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}
 docker inspect --format='{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
 
 ```
->>>>>>> branch 'master' of https://github.com/zhengzizhi/microservice-store.git
 
 ## License
 
