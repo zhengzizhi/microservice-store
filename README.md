@@ -217,6 +217,140 @@ Transfer-Encoding: chunked
     "name": "Fall Catalog"
 }
 
+## How to connect redis
+redis-cli -h 192.168.99.100 -p 6379
+
+## How to use browser to login neo4j database
+URL   http://192.168.99.100:7474/browser/
+      username: neo4j
+      password: secret
+
+## How to execute SQL on named dev about mysql database
+[root@cloud ~]# mysql -uroot -pdbpass -h192.168.99.100
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 62
+Server version: 5.7.23 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> use dev
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MySQL [dev]> show tables;
++----------------------+
+| Tables_in_dev        |
++----------------------+
+| account              |
+| account_addresses    |
+| account_credit_cards |
+| address              |
+| cart_event           |
+| catalog_info         |
+| credit_card          |
+| customer             |
+| user                 |
++----------------------+
+9 rows in set (0.002 sec)
+
+MySQL [dev]> select * from user;
++----+------------+---------------+----------------------+------------+-----------+----------+
+| id | created_at | last_modified | email                | first_name | last_name | username |
++----+------------+---------------+----------------------+------------+-----------+----------+
+|  0 | 1537147813 |    1537147813 | john.doe@example.com | John       | Doe       | user     |
++----+------------+---------------+----------------------+------------+-----------+----------+
+1 row in set (0.001 sec)
+
+MySQL [dev]> select * from account;
++----+------------+---------------+----------------+-----------------+---------+
+| id | created_at | last_modified | account_number | default_account | user_id |
++----+------------+---------------+----------------+-----------------+---------+
+|  0 | 1537147823 |    1537147823 | 12345          |                | user    |
++----+------------+---------------+----------------+-----------------+---------+
+1 row in set (0.001 sec)
+
+MySQL [dev]> select * from account_addresses;
++------------+--------------+
+| account_id | addresses_id |
++------------+--------------+
+|          0 |            0 |
++------------+--------------+
+1 row in set (0.001 sec)
+
+MySQL [dev]> select * from account_credit_cards;
++------------+-----------------+
+| account_id | credit_cards_id |
++------------+-----------------+
+|          0 |               0 |
++------------+-----------------+
+1 row in set (0.001 sec)
+
+MySQL [dev]> select * from address;
++----+------------+---------------+--------------+-----------+---------------+-------+----------------------+---------+----------+
+| id | created_at | last_modified | address_type | city      | country       | state | street1              | street2 | zip_code |
++----+------------+---------------+--------------+-----------+---------------+-------+----------------------+---------+----------+
+|  0 | 1537147823 |    1537147823 |            0 | Palo Alto | United States | CA    | 3495 Deer Creek Road |         |    94304 |
++----+------------+---------------+--------------+-----------+---------------+-------+----------------------+---------+----------+
+1 row in set (0.001 sec)
+
+MySQL [dev]> select * from cart_event;
+Empty set (0.001 sec)
+
+MySQL [dev]> select * from catalog_info;
++----+--------+------------+
+| id | active | catalog_id |
++----+--------+------------+
+| 0  |       |          0 |
++----+--------+------------+
+1 row in set (0.001 sec)
+
+MySQL [dev]> select * from credit_card;
++----+------------+---------------+------------------+------+
+| id | created_at | last_modified | number           | type |
++----+------------+---------------+------------------+------+
+|  0 | 1537147823 |    1537147823 | 1234567801234567 |    0 |
++----+------------+---------------+------------------+------+
+1 row in set (0.002 sec)
+
+MySQL [dev]> select * from customer;
++----+------------+---------------+----------------------+------------+-----------+------------+
+| id | created_at | last_modified | email                | first_name | last_name | account_id |
++----+------------+---------------+----------------------+------------+-----------+------------+
+|  0 | 1537147823 |    1537147823 | john.doe@example.com | John       | Doe       |          0 |
++----+------------+---------------+----------------------+------------+-----------+------------+
+1 row in set (0.001 sec)
+
+MySQL [dev]> 
+
+## How to push images to  https://hub.docker.com , for example push config-service image and discovery-service image to https://hub.docker.com
+$ docker login
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username: zigoo        ## this is my registered username
+Password: ********     ## this is my login https://hub.docker.com website of password
+WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+
+$ docker push zigoo/config-service
+The push refers to repository [docker.io/zigoo/config-service]
+1cbd9cfec2f6: Pushed 
+8a3a6492a95b: Pushed 
+ad0b3bf520dd: Mounted from anapsix/alpine-java 
+cd7100a72410: Mounted from anapsix/alpine-java 
+latest: digest: sha256:197f92c8886eba4b72658bda3a8a97c7bad8a6b8cddaa73e192b7d2389ba65a0 size: 1164
+
+$ docker push zigoo/discovery-service
+The push refers to repository [docker.io/zigoo/discovery-service]
+7c3b5acfb428: Pushed 
+c67c3ccd72d1: Pushed 
+ad0b3bf520dd: Mounted from zigoo/config-service 
+cd7100a72410: Mounted from zigoo/config-service 
+latest: digest: sha256:848d1e9bdd3bfa13b65f85ef4db0831d729c4b9637fe18ea3939c51dcd108ad8 size: 1164
 ```
 
 ## License
