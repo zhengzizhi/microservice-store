@@ -158,8 +158,8 @@ contentApp.controller('CartCtrl', ['$scope', '$http', '$templateCache',
 
 contentApp.controller('HeaderCtrl', ['$scope', '$http',
     function ($scope, $http) {
-        $scope.authUrl = '/api/user/uaa/v1/me';
-        $scope.meUrl = '/api/user/uaa/v1/me';
+        $scope.authUrl = '/api/user/uaa/v1/me';  
+        $scope.meUrl = '/api/user/uaa/v1/me';    
         $scope.user = {};
 
         $scope.logout = function () {

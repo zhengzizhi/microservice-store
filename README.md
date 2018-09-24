@@ -1,52 +1,130 @@
-# Spring Cloud Event Sourcing Example
+<<<<<<< HEAD
 
-This reference application is a Spring Cloud example of using event sourcing in microservices. The project is intended to demonstrate end-to-end best practices for building a _Netflix-like_ microservice architecture using Spring Cloud.
+# microservice-store version information
+pom.xml
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-Tutorial provided here: http://www.kennybastani.com/2016/04/event-sourcing-microservices-spring-cloud.html
+	<groupId>com.contoso</groupId>
+	<artifactId>microservice-store</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>microservice-store/parent</name>
 
-* Spring Cloud OAuth2
-  * Authorization Server
-  * Resource Server
-* Edge Service
-  * API gateway with OAuth2 protected resources
-  * OAuth2 SSO
-* Event-driven Messaging
-  * Event sourcing
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.5.RELEASE</version>
+		<relativePath />
+	</parent>
 
-## Architecture Diagram
+	<modules>
+		<module>inventory-service</module>
+		<module>order-service</module>
+		<module>account-service</module>
+		<module>user-service</module>
+		<module>payment-service</module>
+		<module>config-service</module>
+		<module>discovery-service</module>
+		<module>online-store-web</module>
+		<module>catalog-service</module>
+		<module>edge-service</module>
+		<module>shopping-cart-service</module>
+		<module>hystrix-dashboard</module>
+	</modules>
 
-![Online Store Architecture Diagram](http://i.imgur.com/zqzmAzi.png)
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<spring-cloud.version>Finchley.SR1</spring-cloud.version>
+		<docker.image.prefix>zigoo</docker.image.prefix>
+		<docker.plugin.version>1.1.1</docker.plugin.version>
+	</properties>
 
-## Online Store Domain
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<!-- upgrade spring-security-oauth2 to 2.3.3.RELEASE -->
+		<dependency>
+			<groupId>org.springframework.security.oauth</groupId>
+			<artifactId>spring-security-oauth2</artifactId>
+			<version>2.3.3.RELEASE</version>
+		</dependency>
+	</dependencies>
 
-This reference application is based on common design patterns for building an ecommerce application. The application includes the following microservices.
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
-* Discovery Service
-* Edge Service
-* User Service
-* Catalog Service
-* Account Service
-* Order Service
-* Inventory Service
-* Online Store Web
-* Shopping Cart Service
+</project>
 
-## Usage
 
-Microservice architectures commonly use multiple databases. The resources of the business domain are distributed across the microservice architecture, with each service having its own exclusive database. Each type of database for a microservice is commonly chosen by a development team based on its advantages when solving a specific problem.
+## How to start this project
 
-This reference application uses the following mixture of databases.
+$ docker-machine create default --driver virtualbox --virtualbox-memory "11000" --virtualbox-disk-size "100000"
+$ docker-machine ls
+$ cd /opt/coding/microservice-store
+$ mvn clean && sh run.sh
 
-* MySQL - RDBMS
-* Neo4j - GraphDB
-* MongoDB - Document Store
-* Redis - Key/value Store
 
-### Integration Testing
+## when .docker/machine/machines path not enough disk space
 
-If you would like to use Docker for integration testing, a `docker-compose.yml` file has been provided in the root directory. To build all the images, first make sure that you have Docker installed and available in your command line tool. With Docker and Docker Compose installed, execute the provided `run.sh` script. This script will build each container and start each of the services and database dependencies. When all the services have started up. Verify that the services are registered with Eureka at `http://$DOCKER_IP:8761`.
+du -h --max-depth=1
+docker-machine rm default
+docker-machine create default --driver virtualbox --virtualbox-memory "11000" --virtualbox-disk-size "100000"
 
-If everything has loaded correctly, navigate to the online store at `http://DOCKER_IP:8787/`. Click `Login`. You'll be navigated to the authorization server's gateway at `http://DOCKER_IP:8181/uaa/login`. The username is `user` and the password is `password`. You'll be authenticated and asked to approve token grant to the online web store. After accepting the grant, you'll be redirected to the online store application where you'll be able to access protected resources from the edge service.
+CentOS 7.5 profile :
+[root@cloud ~]# cat /etc/profile
+# /etc/profile
+...  ...  ......
+...  ...  ......
+...  ...  ......
+
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.181-3.b13.el7_5.x86_64
+export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$JAVA_HOME/bin:$PATH
+export PATH=/opt/apache-maven-3.5.4/bin:$PATH
+export MAVEN_HOME=/opt/apache-maven-3.5.4
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://192.168.99.100:2376"
+export DOCKER_CERT_PATH="/root/.docker/machine/machines/default"
+export DOCKER_MACHINE_NAME="default"
+[root@cloud ~]# 
+
+
+## your computer has poweroff or reboot, not to execute bash run.sh to start microservice-store
+
+docker-machine start default
+cd /opt/coding/microservice-store && docker-compose up -d 
+
+
+## check docker container server logs for debugging
+
+docker container ls --all
+docker logs -f f2417f378c11
+
+## show all docker container server ip address
+
+docker inspect -f '{{.Name}} - {{.NetworkSettings.IPAddress }}' $(docker ps -aq)
+docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
+docker inspect --format='{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
+
+```
+>>>>>>> branch 'master' of https://github.com/zhengzizhi/microservice-store.git
 
 ## License
 

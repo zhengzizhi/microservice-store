@@ -13,10 +13,10 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests()
-                .antMatchers("/resources/**", "/login").permitAll()
-                .anyRequest()
-                .authenticated();
+            .authorizeRequests()
+            .antMatchers("/resources/**", "/login", "/oauth/authorize").permitAll()
+            .anyRequest()
+            .authenticated();
     }
 
     @Bean
