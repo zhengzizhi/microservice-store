@@ -81,6 +81,28 @@ $ docker-machine ls
 $ cd /opt/coding/microservice-store
 $ mvn clean && sh run.sh
 
+## How to test to generate Token (acme:acmesecret BASE64 is YWNtZTphY21lc2VjcmV0)
+
+http://192.168.99.100:8181/uaa/oauth/authorize?response_type=code&scope=openid&client_id=acme&redirect_uri=http://www.baidu.com/&state=xyz
+Callback URL https://www.baidu.com/?code=j38Quz&state=xyz
+
+curl -i -X POST http://192.168.99.100:8181/uaa/oauth/token \
+-H 'authorization: Basic YWNtZTphY21lc2VjcmV0' \
+-H "Accept: application/json" \
+-d "client_id=acme&client_secret=acmesecret&grant_type=authorization_code&code=j38Quz&redirect_uri=http://www.baidu.com/"
+
+HTTP/1.1 200 
+Cache-Control: no-store
+Pragma: no-cache
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+X-Frame-Options: DENY
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Mon, 24 Sep 2018 16:08:55 GMT
+
+{"access_token":"9b27b162-5049-4bfd-ae7b-525da55b608b","token_type":"bearer","refresh_token":"43d05c89-f47b-4b32-836d-2482689c8c23","expires_in":43199,"scope":"openid"}
+
 
 ## when .docker/machine/machines path not enough disk space
 
