@@ -70,6 +70,8 @@ pom.xml
 
 </project>
 
+## How to configure Java's Maven development environment on CentOS 7
+https://blog.csdn.net/zhengzizhi/article/details/81039627
 
 ## How to start this project
 $ mkdir /opt/coding
