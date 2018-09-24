@@ -161,7 +161,7 @@ docker inspect --format='{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAdd
 /microservice-store_config-service_1 - 172.17.0.2
 [root@cloud microservice-store]# 
 
-## Chrome or Firefox or curl to access derectly catalog info
+## Google or Firefox browser and curl command terminals have direct access to catalog information without authorization
 
 $ curl -i -X GET http://192.168.99.100:8787/api/catalog/v1/catalog
 HTTP/1.1 200 
