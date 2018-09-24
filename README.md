@@ -114,7 +114,27 @@ cd /opt/coding/microservice-store && docker-compose up -d
 ## check docker container server logs for debugging
 
 docker container ls --all
-docker logs -f f2417f378c11
+docker logs -f bc83190eed58
+docker logs -f ee9d0560f5e0
+
+[root@cloud microservice-store]# docker container ls --all
+CONTAINER ID        IMAGE                         COMMAND                  CREATED             STATUS              PORTS                                                      NAMES
+bc83190eed58        zigoo/online-store-web        "java -Djava.securit鈥   2 hours ago         Up 2 hours          0.0.0.0:8787->8787/tcp                                     microservice-store_online-store-web_1
+36b3a5ac5e07        zigoo/order-service           "java -Djava.securit鈥   2 hours ago         Up 2 hours                                                                     microservice-store_order-service_1
+0218323b221c        zigoo/shopping-cart-service   "java -Djava.securit鈥   2 hours ago         Up 2 hours                                                                     microservice-store_shopping-cart-service_1
+af8cd5c8ddf4        zigoo/account-service         "java -Djava.securit鈥   2 hours ago         Up 2 hours                                                                     microservice-store_account-service_1
+116760a65b30        zigoo/edge-service            "java -Djava.securit鈥   2 hours ago         Up 2 hours          0.0.0.0:9999->9999/tcp                                     microservice-store_edge-service_1
+ee9d0560f5e0        zigoo/user-service            "java -Djava.securit鈥   2 hours ago         Up 2 hours          0.0.0.0:8181->8181/tcp                                     microservice-store_user-service_1
+dcc5691ca29d        zigoo/catalog-service         "java -Djava.securit鈥   2 hours ago         Up 2 hours                                                                     microservice-store_catalog-service_1
+dd015cc19293        zigoo/inventory-service       "java -Djava.securit鈥   2 hours ago         Up 2 hours                                                                     microservice-store_inventory-service_1
+8385bcf26acb        mysql:5.7                     "docker-entrypoint.s鈥   2 hours ago         Up 2 hours          0.0.0.0:3306->3306/tcp, 33060/tcp                          microservice-store_mysql_1
+4d401e68ca02        mongo:3.3                     "/entrypoint.sh mong鈥   2 hours ago         Up 2 hours          0.0.0.0:27017->27017/tcp                                   microservice-store_mongo_1
+c6aa334c9e99        neo4j:3.4                     "/sbin/tini -g -- /d鈥   2 hours ago         Up 2 hours          0.0.0.0:7474->7474/tcp, 7473/tcp, 0.0.0.0:7687->7687/tcp   microservice-store_neo4j_1
+3100b32a51a5        zigoo/hystrix-dashboard       "java -Djava.securit鈥   2 hours ago         Up 2 hours          0.0.0.0:6161->6161/tcp                                     microservice-store_hystrix-dashboard_1
+ff497980e4d9        redis:3.0                     "docker-entrypoint.s鈥   2 hours ago         Up 2 hours          0.0.0.0:6379->6379/tcp                                     microservice-store_redis_1
+789aa7586bf6        zigoo/discovery-service       "java -Djava.securit鈥   2 hours ago         Up 2 hours          0.0.0.0:8761->8761/tcp                                     microservice-store_discovery-service_1
+5f4e49e729a4        zigoo/config-service          "java -Djava.securit鈥   2 hours ago         Up 2 hours          0.0.0.0:8888->8888/tcp                                     microservice-store_config-service_1
+[root@cloud microservice-store]# 
 
 ## show all docker container server ip address
 
