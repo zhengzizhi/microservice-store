@@ -142,6 +142,25 @@ docker inspect -f '{{.Name}} - {{.NetworkSettings.IPAddress }}' $(docker ps -aq)
 docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
 docker inspect --format='{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
 
+
+[root@cloud microservice-store]# docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
+/microservice-store_online-store-web_1 - 172.17.0.16
+/microservice-store_order-service_1 - 172.17.0.15
+/microservice-store_shopping-cart-service_1 - 172.17.0.14
+/microservice-store_account-service_1 - 172.17.0.13
+/microservice-store_edge-service_1 - 172.17.0.12
+/microservice-store_user-service_1 - 172.17.0.10
+/microservice-store_catalog-service_1 - 172.17.0.11
+/microservice-store_inventory-service_1 - 172.17.0.9
+/microservice-store_mysql_1 - 172.17.0.7
+/microservice-store_mongo_1 - 172.17.0.8
+/microservice-store_neo4j_1 - 172.17.0.6
+/microservice-store_hystrix-dashboard_1 - 172.17.0.5
+/microservice-store_redis_1 - 172.17.0.4
+/microservice-store_discovery-service_1 - 172.17.0.3
+/microservice-store_config-service_1 - 172.17.0.2
+[root@cloud microservice-store]# 
+
 ```
 
 ## License
