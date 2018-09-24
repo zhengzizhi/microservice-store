@@ -72,7 +72,8 @@ pom.xml
 
 
 ## How to start this project
-
+$ mkdir /opt/coding
+$ cd /opt/coding && git clone https://github.com/zhengzizhi/microservice-store.git
 $ docker-machine create default --driver virtualbox --virtualbox-memory "11000" --virtualbox-disk-size "100000"
 $ docker-machine ls
 $ cd /opt/coding/microservice-store
