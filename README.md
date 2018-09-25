@@ -79,8 +79,8 @@ $ mkdir /opt/coding
 $ cd /opt/coding && git clone https://github.com/zhengzizhi/microservice-store.git
 $ docker-machine create default --driver virtualbox --virtualbox-memory "11000" --virtualbox-disk-size "100000"
 $ docker-machine ls
-$ cd /opt/coding/microservice-store
-$ mvn clean && sh run.sh
+$ cd /opt/coding/microservice-store && mvn clean && sh run.sh
+
 ```
 ## How to test to generate Token (acme:acmesecret BASE64 is YWNtZTphY21lc2VjcmV0)
 In browser input the below URL to wait for callbacking URL(We need code=j38Quz):
