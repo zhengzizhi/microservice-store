@@ -1,0 +1,11 @@
+com/contoso/config/AuthorizationServerConfig.class
+com/contoso/user/UserRepository.class
+com/contoso/user/User.class
+com/contoso/user/UserServiceV1.class
+com/contoso/UserApplication.class
+com/contoso/login/LoginController.class
+com/contoso/api/v1/UserControllerV1.class
+com/contoso/config/AuthorizationServerConfig$OAuth2Config.class
+com/contoso/config/WebMvcConfig.class
+com/contoso/config/ResourceServerConfig.class
+com/contoso/data/BaseEntity.class

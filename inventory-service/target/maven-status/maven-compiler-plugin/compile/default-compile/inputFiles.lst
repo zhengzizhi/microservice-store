@@ -1,0 +1,17 @@
+/opt/coding/microservice-store/inventory-service/src/main/java/com/contoso/address/AddressRepository.java
+/opt/coding/microservice-store/inventory-service/src/main/java/com/contoso/warehouse/Warehouse.java
+/opt/coding/microservice-store/inventory-service/src/main/java/com/contoso/inventory/InventoryStatus.java
+/opt/coding/microservice-store/inventory-service/src/main/java/com/contoso/catalog/CatalogRepository.java
+/opt/coding/microservice-store/inventory-service/src/main/java/com/contoso/shipment/ShipmentStatus.java
+/opt/coding/microservice-store/inventory-service/src/main/java/com/contoso/product/ProductRepository.java
+/opt/coding/microservice-store/inventory-service/src/main/java/com/contoso/v1/InventoryControllerV1.java
+/opt/coding/microservice-store/inventory-service/src/main/java/com/contoso/product/Product.java
+/opt/coding/microservice-store/inventory-service/src/main/java/com/contoso/InventoryApplication.java
+/opt/coding/microservice-store/inventory-service/src/main/java/com/contoso/catalog/Catalog.java
+/opt/coding/microservice-store/inventory-service/src/main/java/com/contoso/warehouse/WarehouseRepository.java
+/opt/coding/microservice-store/inventory-service/src/main/java/com/contoso/inventory/InventoryRepository.java
+/opt/coding/microservice-store/inventory-service/src/main/java/com/contoso/inventory/Inventory.java
+/opt/coding/microservice-store/inventory-service/src/main/java/com/contoso/shipment/ShipmentRepository.java
+/opt/coding/microservice-store/inventory-service/src/main/java/com/contoso/address/Address.java
+/opt/coding/microservice-store/inventory-service/src/main/java/com/contoso/v1/InventoryServiceV1.java
+/opt/coding/microservice-store/inventory-service/src/main/java/com/contoso/shipment/Shipment.java

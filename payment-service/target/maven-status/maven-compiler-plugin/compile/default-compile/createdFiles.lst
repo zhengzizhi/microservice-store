@@ -1,0 +1,6 @@
+com/contoso/UserRepository.class
+com/contoso/UserController.class
+com/contoso/UserServiceApplication.class
+com/contoso/CacheConfig.class
+com/contoso/UserService.class
+com/contoso/User.class

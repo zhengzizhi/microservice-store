@@ -1,0 +1,10 @@
+/opt/coding/microservice-store/user-service/src/main/java/com/contoso/user/UserRepository.java
+/opt/coding/microservice-store/user-service/src/main/java/com/contoso/user/UserServiceV1.java
+/opt/coding/microservice-store/user-service/src/main/java/com/contoso/user/User.java
+/opt/coding/microservice-store/user-service/src/main/java/com/contoso/api/v1/UserControllerV1.java
+/opt/coding/microservice-store/user-service/src/main/java/com/contoso/config/AuthorizationServerConfig.java
+/opt/coding/microservice-store/user-service/src/main/java/com/contoso/data/BaseEntity.java
+/opt/coding/microservice-store/user-service/src/main/java/com/contoso/UserApplication.java
+/opt/coding/microservice-store/user-service/src/main/java/com/contoso/login/LoginController.java
+/opt/coding/microservice-store/user-service/src/main/java/com/contoso/config/WebMvcConfig.java
+/opt/coding/microservice-store/user-service/src/main/java/com/contoso/config/ResourceServerConfig.java
