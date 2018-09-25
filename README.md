@@ -73,7 +73,7 @@ pom.xml
 ## How to configure Java's Maven development environment on CentOS 7
 https://blog.csdn.net/zhengzizhi/article/details/81039627
 
-## How to start this project
+## How to start this project（The runtime environment needs at least 11GB of memory, and 100GB or more disk space is recommended.）
 ```
 $ mkdir /opt/coding
 $ cd /opt/coding && git clone https://github.com/zhengzizhi/microservice-store.git
