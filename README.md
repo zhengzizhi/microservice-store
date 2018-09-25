@@ -163,7 +163,23 @@ ff497980e4d9        redis:3.0                     "docker-entrypoint.s鈥   2 ho
 789aa7586bf6        zigoo/discovery-service       "java -Djava.securit鈥   2 hours ago         Up 2 hours          0.0.0.0:8761->8761/tcp                                     microservice-store_discovery-service_1
 5f4e49e729a4        zigoo/config-service          "java -Djava.securit鈥   2 hours ago         Up 2 hours          0.0.0.0:8888->8888/tcp                                     microservice-store_config-service_1
 ```
- 
+
+## How to clean docker containers logs
+```
+$ cat > clean-docker-logs.sh
+#!/usr/bin/env bash
+echo "======== start clean docker containers logs ========" 
+logs=$(find /var/lib/docker/containers/ -name *-json.log)  
+for log in $logs
+do      
+  echo "clean logs : $log"        
+  cat /dev/null > $log   
+done  
+echo "======== end clean docker containers logs ========"
+
+$ chmod +x clean-docker-logs.sh
+$ bash clean-docker-logs.sh
+```
 
 ## show all docker container server ip address
 ```
