@@ -112,7 +112,7 @@ docker-machine rm default
 docker-machine create default --driver virtualbox --virtualbox-memory "11000" --virtualbox-disk-size "100000"
 ```
 CentOS 7.5 profile :
-[root@cloud ~]# cat /etc/profile
+$ cat /etc/profile
 ```
 # /etc/profile
 ...  ...  ......
@@ -129,7 +129,7 @@ export DOCKER_HOST="tcp://192.168.99.100:2376"
 export DOCKER_CERT_PATH="/root/.docker/machine/machines/default"
 export DOCKER_MACHINE_NAME="default"
 ```
-[root@cloud ~]# 
+
 
 
 ## your computer has poweroff or reboot, not to execute bash run.sh to start microservice-store
@@ -144,7 +144,7 @@ docker container ls --all
 docker logs -f bc83190eed58
 docker logs -f ee9d0560f5e0
 ```
-[root@cloud microservice-store]# docker container ls --all
+$ docker container ls --all
 ```
 CONTAINER ID        IMAGE                         COMMAND                  CREATED             STATUS              PORTS                                                      NAMES
 bc83190eed58        zigoo/online-store-web        "java -Djava.securit鈥   2 hours ago         Up 2 hours          0.0.0.0:8787->8787/tcp                                     microservice-store_online-store-web_1
@@ -163,7 +163,7 @@ ff497980e4d9        redis:3.0                     "docker-entrypoint.s鈥   2 ho
 789aa7586bf6        zigoo/discovery-service       "java -Djava.securit鈥   2 hours ago         Up 2 hours          0.0.0.0:8761->8761/tcp                                     microservice-store_discovery-service_1
 5f4e49e729a4        zigoo/config-service          "java -Djava.securit鈥   2 hours ago         Up 2 hours          0.0.0.0:8888->8888/tcp                                     microservice-store_config-service_1
 ```
-[root@cloud microservice-store]# 
+ 
 
 ## show all docker container server ip address
 ```
@@ -172,7 +172,7 @@ docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}
 docker inspect --format='{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
 
 
-[root@cloud microservice-store]# docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
+$ docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
 /microservice-store_online-store-web_1 - 172.17.0.16
 /microservice-store_order-service_1 - 172.17.0.15
 /microservice-store_shopping-cart-service_1 - 172.17.0.14
@@ -188,7 +188,7 @@ docker inspect --format='{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAdd
 /microservice-store_redis_1 - 172.17.0.4
 /microservice-store_discovery-service_1 - 172.17.0.3
 /microservice-store_config-service_1 - 172.17.0.2
-[root@cloud microservice-store]# 
+
 ```
 ## Google or Firefox browser and curl command terminals have direct access to catalog information without authorization
 
@@ -256,7 +256,7 @@ URL   http://192.168.99.100:7474/browser/
 ```
 
 ## How to execute SQL on named dev about mysql database
-[root@cloud ~]# mysql -uroot -pdbpass -h192.168.99.100
+$ mysql -uroot -pdbpass -h192.168.99.100
 ```
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MySQL connection id is 62
@@ -357,8 +357,9 @@ MySQL [dev]> select * from customer;
 MySQL [dev]> 
 ```
 ## How to push images to  https://hub.docker.com , for example push config-service image and discovery-service image to https://hub.docker.com
-$ docker login
 ```
+$ docker login
+
 Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
 Username: zigoo        ## this is my registered username
 Password: ********     ## this is my login https://hub.docker.com website of password
