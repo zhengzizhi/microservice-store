@@ -254,6 +254,7 @@ URL   http://192.168.99.100:7474/browser/
       username: neo4j
       password: secret
 ```
+![Neo4j Inventory](https://github.com/zhengzizhi/photo/blob/master/neo4j-inventory.png)
 
 ## How to execute SQL on named dev about mysql database
 $ mysql -uroot -pdbpass -h192.168.99.100
