@@ -1,6 +1,6 @@
 # microservice-store version information
 pom.xml
-
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -69,21 +69,22 @@ pom.xml
 	</dependencyManagement>
 
 </project>
-
+```
 ## How to configure Java's Maven development environment on CentOS 7
 https://blog.csdn.net/zhengzizhi/article/details/81039627
 
 ## How to start this project
+```
 $ mkdir /opt/coding
 $ cd /opt/coding && git clone https://github.com/zhengzizhi/microservice-store.git
 $ docker-machine create default --driver virtualbox --virtualbox-memory "11000" --virtualbox-disk-size "100000"
 $ docker-machine ls
 $ cd /opt/coding/microservice-store
 $ mvn clean && sh run.sh
-
+```
 ## How to test to generate Token (acme:acmesecret BASE64 is YWNtZTphY21lc2VjcmV0)
 In browser input the below URL to wait for callbacking URL(We need code=j38Quz):
-
+```
 http://192.168.99.100:8181/uaa/oauth/authorize?response_type=code&scope=openid&client_id=acme&redirect_uri=http://www.baidu.com/&state=xyz
 
 wait for callbacking URL   https://www.baidu.com/?code=j38Quz&state=xyz
@@ -102,14 +103,14 @@ Content-Type: application/json;charset=UTF-8
 Transfer-Encoding: chunked
 Date: Mon, 24 Sep 2018 16:08:55 GMT
 {"access_token":"9b27b162-5049-4bfd-ae7b-525da55b608b","token_type":"bearer","refresh_token":"43d05c89-f47b-4b32-836d-2482689c8c23","expires_in":43199,"scope":"openid"}
-
+```
 
 ## when .docker/machine/machines path not enough disk space
-
+```
 du -h --max-depth=1
 docker-machine rm default
 docker-machine create default --driver virtualbox --virtualbox-memory "11000" --virtualbox-disk-size "100000"
-
+```
 CentOS 7.5 profile :
 [root@cloud ~]# cat /etc/profile
 # /etc/profile
@@ -142,6 +143,7 @@ docker logs -f bc83190eed58
 docker logs -f ee9d0560f5e0
 
 [root@cloud microservice-store]# docker container ls --all
+```
 CONTAINER ID        IMAGE                         COMMAND                  CREATED             STATUS              PORTS                                                      NAMES
 bc83190eed58        zigoo/online-store-web        "java -Djava.securit鈥   2 hours ago         Up 2 hours          0.0.0.0:8787->8787/tcp                                     microservice-store_online-store-web_1
 36b3a5ac5e07        zigoo/order-service           "java -Djava.securit鈥   2 hours ago         Up 2 hours                                                                     microservice-store_order-service_1
@@ -158,10 +160,11 @@ c6aa334c9e99        neo4j:3.4                     "/sbin/tini -g -- /d鈥   2 ho
 ff497980e4d9        redis:3.0                     "docker-entrypoint.s鈥   2 hours ago         Up 2 hours          0.0.0.0:6379->6379/tcp                                     microservice-store_redis_1
 789aa7586bf6        zigoo/discovery-service       "java -Djava.securit鈥   2 hours ago         Up 2 hours          0.0.0.0:8761->8761/tcp                                     microservice-store_discovery-service_1
 5f4e49e729a4        zigoo/config-service          "java -Djava.securit鈥   2 hours ago         Up 2 hours          0.0.0.0:8888->8888/tcp                                     microservice-store_config-service_1
+```
 [root@cloud microservice-store]# 
 
 ## show all docker container server ip address
-
+```
 docker inspect -f '{{.Name}} - {{.NetworkSettings.IPAddress }}' $(docker ps -aq)
 docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
 docker inspect --format='{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
@@ -184,10 +187,11 @@ docker inspect --format='{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAdd
 /microservice-store_discovery-service_1 - 172.17.0.3
 /microservice-store_config-service_1 - 172.17.0.2
 [root@cloud microservice-store]# 
-
+```
 ## Google or Firefox browser and curl command terminals have direct access to catalog information without authorization
 
 $ curl -i -X GET http://192.168.99.100:8787/api/catalog/v1/catalog
+```
 HTTP/1.1 200 
 Date: Mon, 24 Sep 2018 12:27:59 GMT
 X-Content-Type-Options: nosniff
@@ -238,7 +242,7 @@ Transfer-Encoding: chunked
     ], 
     "name": "Fall Catalog"
 }
-
+```
 ## How to connect redis
 redis-cli -h 192.168.99.100 -p 6379
 
@@ -246,10 +250,11 @@ redis-cli -h 192.168.99.100 -p 6379
 URL   http://192.168.99.100:7474/browser/
       username: neo4j
       password: secret
-![Image text](https://img-blog.csdn.net/20180817130738507?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poZW5neml6aGk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+https://img-blog.csdn.net/20180817130738507?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poZW5neml6aGk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70
 
 ## How to execute SQL on named dev about mysql database
 [root@cloud ~]# mysql -uroot -pdbpass -h192.168.99.100
+```
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MySQL connection id is 62
 Server version: 5.7.23 MySQL Community Server (GPL)
@@ -347,9 +352,10 @@ MySQL [dev]> select * from customer;
 1 row in set (0.001 sec)
 
 MySQL [dev]> 
-
+```
 ## How to push images to  https://hub.docker.com , for example push config-service image and discovery-service image to https://hub.docker.com
 $ docker login
+```
 Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
 Username: zigoo        ## this is my registered username
 Password: ********     ## this is my login https://hub.docker.com website of password
@@ -374,7 +380,7 @@ c67c3ccd72d1: Pushed
 ad0b3bf520dd: Mounted from zigoo/config-service 
 cd7100a72410: Mounted from zigoo/config-service 
 latest: digest: sha256:848d1e9bdd3bfa13b65f85ef4db0831d729c4b9637fe18ea3939c51dcd108ad8 size: 1164
-
+```
 
 ## License
 
