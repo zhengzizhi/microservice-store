@@ -113,6 +113,7 @@ docker-machine create default --driver virtualbox --virtualbox-memory "11000" --
 ```
 CentOS 7.5 profile :
 [root@cloud ~]# cat /etc/profile
+```
 # /etc/profile
 ...  ...  ......
 ...  ...  ......
@@ -127,21 +128,22 @@ export DOCKER_TLS_VERIFY="1"
 export DOCKER_HOST="tcp://192.168.99.100:2376"
 export DOCKER_CERT_PATH="/root/.docker/machine/machines/default"
 export DOCKER_MACHINE_NAME="default"
+```
 [root@cloud ~]# 
 
 
 ## your computer has poweroff or reboot, not to execute bash run.sh to start microservice-store
-
+```
 docker-machine start default
 cd /opt/coding/microservice-store && docker-compose up -d 
-
+```
 
 ## check docker container server logs for debugging
-
+```
 docker container ls --all
 docker logs -f bc83190eed58
 docker logs -f ee9d0560f5e0
-
+```
 [root@cloud microservice-store]# docker container ls --all
 ```
 CONTAINER ID        IMAGE                         COMMAND                  CREATED             STATUS              PORTS                                                      NAMES
@@ -247,10 +249,11 @@ Transfer-Encoding: chunked
 redis-cli -h 192.168.99.100 -p 6379
 
 ## How to use browser to login neo4j database
+```
 URL   http://192.168.99.100:7474/browser/
       username: neo4j
       password: secret
-https://img-blog.csdn.net/20180817130738507?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poZW5neml6aGk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70
+```
 
 ## How to execute SQL on named dev about mysql database
 [root@cloud ~]# mysql -uroot -pdbpass -h192.168.99.100
