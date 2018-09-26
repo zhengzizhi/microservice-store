@@ -1,8 +1,0 @@
-com/contoso/api/v1/CatalogControllerV1.class
-com/contoso/catalog/CatalogInfoRepository.class
-com/contoso/product/Product.class
-com/contoso/catalog/CatalogInfo.class
-com/contoso/api/v1/CatalogServiceV1.class
-com/contoso/api/v1/ProductsResource.class
-com/contoso/catalog/Catalog.class
-com/contoso/CatalogServiceApplication.class

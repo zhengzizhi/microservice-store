@@ -6,17 +6,17 @@ spring:
   profiles: development
   application:
     name: edge-service
-zuul:
-  ignored-services: '*'
-  ignored-patterns: /**/api/**
+zuul:                                         # http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/2.0.1.RELEASE/single/spring-cloud-netflix.html
+  ignored-services: '*'                       # all micro services are ignored, routing only the following specified micro services
+  ignored-patterns: /**/api/**                # ignore all contain /api/ path
   routes:
-    account-service: /account/**
-    payment-service: /payment/**
-    inventory-service: /inventory/**
-    order-service: /order/**
-    user-service: /user/**
-    catalog-service: /catalog/**
-    shopping-cart-service: /shoppingcart/**
+    account-service: /account/**              # HTTP calls to /account get forwarded to the service named account-service (for example /api/account/v1/accounts is forwarded to /v1/accounts)
+    payment-service: /payment/**              # HTTP calls to /payment get forwarded to the service named payment-service (for example /api/payment/v1/payments/ is forwarded to /v1/payments/)
+    inventory-service: /inventory/**          # HTTP calls to /inventory get forwarded to the service named inventory-service (for example /api/inventory/v1/inventories/ is forwarded to /v1/inventories/)
+    order-service: /order/**                  # HTTP calls to /order get forwarded to the service named order-service (for example /api/order/v1/orders/ is forwarded to /v1/orders/)
+    user-service: /user/**                    # HTTP calls to /user get forwarded to the service named user-service (for example /api/user/uaa/v1/me is forwarded to /uaa/v1/me)
+    catalog-service: /catalog/**              # HTTP calls to /catalog get forwarded to the service named catalog-service (for example /api/catalog/v1/catalog is forwarded to /v1/catalog)
+    shopping-cart-service: /shoppingcart/**   # HTTP calls to /shoppingcart get forwarded to the service named shopping-cart-service (for example /api/shoppingcart/v1/cart is forwarded to /v1/cart)
 security:
   oauth2:
     resource:
