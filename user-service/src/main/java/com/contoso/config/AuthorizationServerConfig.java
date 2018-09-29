@@ -48,7 +48,7 @@ public class AuthorizationServerConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-            .antMatchers("/resources/**", "/login").permitAll()
+            .antMatchers("/resources/**", "/login", "/actuator/**").permitAll()
             .anyRequest().authenticated()
             .and()
             .formLogin()
@@ -69,6 +69,7 @@ public class AuthorizationServerConfig extends WebSecurityConfigurerAdapter {
     	private TokenStore tokenStore;
     	
         @Autowired
+	@Qualifier("authenticationManagerBean")
         private AuthenticationManager authenticationManager;
         
         @Autowired
